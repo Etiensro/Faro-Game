@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dwx6shwfrxc0w"]
+
+[ext_resource type="Texture2D" uid="uid://b6hbhb4l2rhrp" path="res://Assets/Escenas/Vignette.png" id="1_fevlp"]
+
+[node name="CapaVinetaGlobal" type="CanvasLayer" unique_id=1501783073]
+layer = 100
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1602536274]
+modulate = Color(1, 1, 1, 0.8509804)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_fevlp")
+expand_mode = 1
