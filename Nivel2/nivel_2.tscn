@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://b2ik1k1uec3at"]
+
+[ext_resource type="Script" uid="uid://eb7s44uwvh8e" path="res://Nivel2/nivel_2.gd" id="1_aeg53"]
+[ext_resource type="Texture2D" uid="uid://dolypf1hbwkml" path="res://Nivel2/AssetsN2/CofreCerrado.png" id="1_kmxh6"]
+[ext_resource type="Texture2D" uid="uid://ddeq3cmfbkexf" path="res://Nivel2/AssetsN2/Microscopio.png" id="3_0hqq8"]
+[ext_resource type="Texture2D" uid="uid://dclat52l0pquh" path="res://Nivel2/AssetsN2/VistaMicroscopio.png" id="4_lnxca"]
+[ext_resource type="Texture2D" uid="uid://vs3y8oimv5g0" path="res://Nivel2/AssetsN2/Pizarron.png" id="5_0hqq8"]
+[ext_resource type="Texture2D" uid="uid://dsyfy8pfnrvll" path="res://Nivel2/AssetsN2/CofreAbierto.png" id="6_tvpq2"]
+[ext_resource type="Texture2D" uid="uid://w7eb7dxs1ido" path="res://Nivel2/AssetsN2/Llave.png" id="7_nhm3x"]
+[ext_resource type="Texture2D" uid="uid://n06x2jaa1w3e" path="res://Nivel2/AssetsN2/Puerta.png" id="8_nhm3x"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qejag"]
+load_path = "res://.godot/imported/N2EscenarioPrincipal.png-4411a4b1ad0d19735d109ac521fa9036.ctex"
+
+[node name="Nivel2" type="Node2D" unique_id=516438691]
+script = ExtResource("1_aeg53")
+
+[node name="FondoN2Principal" type="TextureRect" parent="." unique_id=1923304835]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("CompressedTexture2D_qejag")
+expand_mode = 1
+
+[node name="Button1Microscopio" type="TextureButton" parent="." unique_id=529452739]
+offset_left = 264.0
+offset_top = 568.0
+offset_right = 465.0
+offset_bottom = 911.0
+
+[node name="Button1Pizarron" type="TextureButton" parent="." unique_id=750085437]
+offset_left = 732.0
+offset_top = 387.0
+offset_right = 1186.0
+offset_bottom = 666.0
+
+[node name="Button1Puerta" type="TextureButton" parent="." unique_id=1201542518]
+offset_left = 1484.0
+offset_top = 338.0
+offset_right = 1804.0
+offset_bottom = 979.0
+
+[node name="CofreCerrado" type="TextureRect" parent="." unique_id=436141991]
+offset_left = 756.0
+offset_top = 850.0
+offset_right = 1225.0
+offset_bottom = 1098.0
+texture = ExtResource("1_kmxh6")
+expand_mode = 1
+
+[node name="Button1CofreCerrado" type="TextureButton" parent="." unique_id=208457084]
+offset_left = 863.0
+offset_top = 882.0
+offset_right = 1119.0
+offset_bottom = 1070.0
+
+[node name="CapaUI" type="CanvasLayer" parent="." unique_id=904054060]
+layer = 10
+
+[node name="ZoomMicroscopio" type="ColorRect" parent="CapaUI" unique_id=1717385509]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Microscopio2" type="TextureRect" parent="CapaUI/ZoomMicroscopio" unique_id=905316060]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 344.0
+offset_right = 1592.0
+offset_bottom = 906.0
+texture = ExtResource("3_0hqq8")
+
+[node name="ButtonCerrarMicro" type="Button" parent="CapaUI/ZoomMicroscopio" unique_id=1481581416]
+layout_mode = 0
+offset_left = 1795.0
+offset_top = 13.0
+offset_right = 1890.0
+offset_bottom = 63.0
+text = "Cerrar"
+
+[node name="ButtonVisor" type="Button" parent="CapaUI/ZoomMicroscopio" unique_id=860092113]
+layout_mode = 0
+offset_left = 987.0
+offset_top = 744.0
+offset_right = 1085.0
+offset_bottom = 804.0
+flat = true
+
+[node name="VistaInternaMicro" type="TextureRect" parent="CapaUI/ZoomMicroscopio" unique_id=252021285]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = 27.0
+offset_right = 1931.0
+offset_bottom = 1107.0
+texture = ExtResource("4_lnxca")
+expand_mode = 1
+
+[node name="ButtonCerrarVistaMicro" type="Button" parent="CapaUI/ZoomMicroscopio/VistaInternaMicro" unique_id=1291897235]
+layout_mode = 0
+offset_left = 1799.0
+offset_top = 17.0
+offset_right = 1873.0
+offset_bottom = 74.0
+text = "Cerrar"
+
+[node name="ZoomPizarron" type="ColorRect" parent="CapaUI" unique_id=260562539]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Pizarron2" type="TextureRect" parent="CapaUI/ZoomPizarron" unique_id=1238225630]
+layout_mode = 0
+offset_left = 701.0
+offset_top = 371.0
+offset_right = 1219.0
+offset_bottom = 670.0
+texture = ExtResource("5_0hqq8")
+expand_mode = 1
+
+[node name="ButtonCerrarPizarron" type="Button" parent="CapaUI/ZoomPizarron" unique_id=1120989942]
+layout_mode = 0
+offset_left = 1147.0
+offset_top = 403.0
+offset_right = 1179.0
+offset_bottom = 434.0
+text = "X"
+
+[node name="LineEdit" type="LineEdit" parent="CapaUI/ZoomPizarron" unique_id=1681439923]
+layout_mode = 0
+offset_left = 955.0
+offset_top = 519.0
+offset_right = 1173.0
+offset_bottom = 550.0
+placeholder_text = "Respuesta: "
+
+[node name="ButtonComprobar" type="Button" parent="CapaUI/ZoomPizarron" unique_id=1483317032]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 600.0
+offset_right = 836.0
+offset_bottom = 631.0
+text = "Verificar"
+
+[node name="LabelMensaje" type="Label" parent="CapaUI/ZoomPizarron" unique_id=1989438952]
+layout_mode = 0
+offset_left = 934.0
+offset_top = 716.0
+offset_right = 1082.0
+offset_bottom = 739.0
+text = "M"
+
+[node name="ZoomCofre" type="ColorRect" parent="CapaUI" unique_id=1478080905]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="CofreAbierto" type="TextureRect" parent="CapaUI/ZoomCofre" unique_id=331206208]
+layout_mode = 0
+offset_left = 578.0
+offset_top = 649.0
+offset_right = 1400.0
+offset_bottom = 1124.0
+texture = ExtResource("6_tvpq2")
+
+[node name="Llave" type="TextureRect" parent="CapaUI/ZoomCofre" unique_id=1896681352]
+visible = false
+layout_mode = 0
+offset_left = 693.0
+offset_top = 409.0
+offset_right = 1296.0
+offset_bottom = 738.0
+texture = ExtResource("7_nhm3x")
+
+[node name="ButtonLlavePequena" type="Button" parent="CapaUI/ZoomCofre" unique_id=121086678]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 954.0
+offset_right = 1072.0
+offset_bottom = 1022.0
+flat = true
+
+[node name="ButtonTomarLlave" type="Button" parent="CapaUI/ZoomCofre" unique_id=1684140841]
+visible = false
+layout_mode = 0
+offset_left = 1171.0
+offset_top = 473.0
+offset_right = 1310.0
+offset_bottom = 509.0
+theme_override_font_sizes/font_size = 20
+text = "\"Tomar llave\""
+
+[node name="ZoomPuerta" type="ColorRect" parent="CapaUI" unique_id=134491695]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.9411765)
+
+[node name="TextureRect" type="TextureRect" parent="CapaUI/ZoomPuerta" unique_id=1394955590]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 104.0
+offset_right = 1823.0
+offset_bottom = 1166.0
+texture = ExtResource("8_nhm3x")
+
+[node name="Label" type="Label" parent="CapaUI/ZoomPuerta" unique_id=518087468]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 90.0
+offset_right = 1571.0
+offset_bottom = 194.0
+theme_override_colors/font_color = Color(0.9785232, 0.94791263, 0.99539346, 1)
+theme_override_font_sizes/font_size = 40
+text = "\"¡HAS ESCAPADO DEL LABORATORIO! NIVEL COMPLETADO\""
+
+[node name="BotonPerilla" type="Button" parent="CapaUI/ZoomPuerta" unique_id=977782786]
+layout_mode = 0
+offset_left = 862.0
+offset_top = 618.0
+offset_right = 961.0
+offset_bottom = 809.0
+flat = true
+
+[connection signal="pressed" from="Button1Microscopio" to="." method="_on_button_1_microscopio_pressed"]
+[connection signal="pressed" from="Button1Pizarron" to="." method="_on_button_1_pizarron_pressed"]
+[connection signal="pressed" from="Button1Puerta" to="." method="_on_button_1_puerta_pressed"]
+[connection signal="pressed" from="Button1CofreCerrado" to="." method="_on_button_1_cofre_cerrado_pressed"]
+[connection signal="pressed" from="CapaUI/ZoomMicroscopio/ButtonCerrarMicro" to="." method="_on_button_cerrar_micro_pressed"]
+[connection signal="pressed" from="CapaUI/ZoomMicroscopio/ButtonVisor" to="." method="_on_button_visor_pressed"]
+[connection signal="pressed" from="CapaUI/ZoomMicroscopio/VistaInternaMicro/ButtonCerrarVistaMicro" to="." method="_on_button_cerrar_vista_micro_pressed"]
+[connection signal="pressed" from="CapaUI/ZoomPizarron/ButtonCerrarPizarron" to="." method="_on_button_cerrar_pizarron_pressed"]
+[connection signal="pressed" from="CapaUI/ZoomPizarron/ButtonComprobar" to="." method="_on_button_comprobar_pressed"]
+[connection signal="pressed" from="CapaUI/ZoomCofre/ButtonLlavePequena" to="." method="_on_button_llave_pequena_pressed"]
+[connection signal="pressed" from="CapaUI/ZoomCofre/ButtonTomarLlave" to="." method="_on_button_tomar_llave_pressed"]
+[connection signal="pressed" from="CapaUI/ZoomPuerta/BotonPerilla" to="." method="_on_boton_perilla_pressed"]
