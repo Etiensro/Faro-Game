@@ -58,7 +58,7 @@ offset_bottom = 1075.0
 texture = ExtResource("3_i1n8g")
 expand_mode = 1
 
-[node name="BtnCerrar" type="Button" parent="CapaUI/FondoZoomPuerta" unique_id=1484846407]
+[node name="BtnCerrarPuerta" type="Button" parent="CapaUI/FondoZoomPuerta" unique_id=1484846407]
 layout_mode = 0
 offset_left = 1741.0
 offset_top = 879.0
@@ -76,7 +76,76 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="FondoZoomEstatua" type="ColorRect" parent="CapaUI" unique_id=1954802436]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CapaUI/FondoZoomEstatua" unique_id=1332551696]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 1925.0
+offset_bottom = 1075.0
+texture = ExtResource("3_i1n8g")
+expand_mode = 1
+
+[node name="BtnCerrarEstatua" type="Button" parent="CapaUI/FondoZoomEstatua" unique_id=1572011362]
+layout_mode = 0
+offset_left = 1741.0
+offset_top = 879.0
+offset_right = 1824.0
+offset_bottom = 1001.0
+text = "X"
+
+[node name="FondoZoomPared" type="ColorRect" parent="CapaUI" unique_id=1127299062]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FondoZoomFuente" type="ColorRect" parent="CapaUI/FondoZoomPared" unique_id=1598850972]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CapaUI/FondoZoomPared/FondoZoomFuente" unique_id=1371077626]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 1925.0
+offset_bottom = 1075.0
+texture = ExtResource("3_i1n8g")
+expand_mode = 1
+
+[node name="BtnCerrarFuente" type="Button" parent="CapaUI/FondoZoomPared/FondoZoomFuente" unique_id=1358642177]
+layout_mode = 0
+offset_left = 1741.0
+offset_top = 879.0
+offset_right = 1824.0
+offset_bottom = 1001.0
+text = "X"
+
+[node name="TextureRect" type="TextureRect" parent="CapaUI/FondoZoomPared" unique_id=812781164]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 1925.0
+offset_bottom = 1075.0
+texture = ExtResource("3_i1n8g")
+expand_mode = 1
+
+[node name="BtnCerrarPared" type="Button" parent="CapaUI/FondoZoomPared" unique_id=702641383]
+layout_mode = 0
+offset_left = 1741.0
+offset_top = 879.0
+offset_right = 1824.0
+offset_bottom = 1001.0
+text = "X"
+
 [connection signal="pressed" from="TBEstatua" to="." method="_on_tb_estatua_pressed"]
 [connection signal="pressed" from="TBFuente" to="." method="_on_tb_fuente_pressed"]
 [connection signal="pressed" from="TBPared" to="." method="_on_tb_pared_pressed"]
 [connection signal="pressed" from="TBFaro" to="." method="_on_tb_faro_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPuerta/BtnCerrarPuerta" to="." method="_on_btn_cerrar_puerta_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPuerta/BtnCerrarPuerta" to="." method="_on_btn_cerrar_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomEstatua/BtnCerrarEstatua" to="." method="_on_btn_cerrar_estatua_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPared/FondoZoomFuente/BtnCerrarFuente" to="." method="_on_btn_cerrar_fuente_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPared/BtnCerrarPared" to="." method="_on_btn_cerrar_pared_pressed"]
