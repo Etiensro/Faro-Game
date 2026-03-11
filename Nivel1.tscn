@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://cutdc5s2le5th" path="res://node_2d.gd" id="1_8yg71"]
 [ext_resource type="Texture2D" uid="uid://bgkytvf1d7np4" path="res://Assets/Escenas/Gemini_Generated_Image_nr77vlnr77vlnr77.png" id="2_i1n8g"]
 [ext_resource type="Texture2D" uid="uid://bet4l708ph3f4" path="res://Assets/Escenas/Puerta Zoom.png" id="3_i1n8g"]
+[ext_resource type="Texture2D" uid="uid://8d557msknkff" path="res://Nivel3/Escenarios/Boton.png" id="4_68tsg"]
+[ext_resource type="Texture2D" uid="uid://dgku74gom4fn6" path="res://Assets/Escenas/EstatuaConFondo.png" id="5_8cp3p"]
+[ext_resource type="Texture2D" uid="uid://xglouks8rba8" path="res://Assets/Escenas/ParedDerecha.png" id="6_ydtn4"]
+[ext_resource type="Texture2D" uid="uid://c0jck552sxv0v" path="res://Assets/Escenas/FuenteZoom.png" id="7_hv2ca"]
+[ext_resource type="Texture2D" uid="uid://bnrhqodgei7ov" path="res://Assets/UI/CapsulaCerrada.png" id="8_s48l2"]
+[ext_resource type="Texture2D" uid="uid://bgyne7qc07ppg" path="res://Assets/UI/Llave.png" id="9_afh24"]
+[ext_resource type="Texture2D" uid="uid://i8xsrch84pf6" path="res://Assets/Escenas/FuenteZoom2.png" id="9_qpwqs"]
+[ext_resource type="VideoStream" uid="uid://bi34sh08htkhb" path="res://Assets/Escenas/Transición_de_Nivel1_a_2.ogv" id="11_poccc"]
 
 [node name="Nivel1" type="Node2D" unique_id=847131557]
 script = ExtResource("1_8yg71")
@@ -32,9 +40,9 @@ offset_right = 1922.0
 offset_bottom = 839.0
 
 [node name="TBFaro" type="TextureButton" parent="." unique_id=775929925]
-offset_left = 1231.0
-offset_top = 549.0
-offset_right = 1339.0
+offset_left = 1208.0
+offset_top = 519.0
+offset_right = 1594.0
 offset_bottom = 744.0
 
 [node name="CapaUI" type="CanvasLayer" parent="." unique_id=1271962581]
@@ -60,13 +68,258 @@ expand_mode = 1
 
 [node name="BtnCerrarPuerta" type="Button" parent="CapaUI/FondoZoomPuerta" unique_id=1484846407]
 layout_mode = 0
-offset_left = 1741.0
-offset_top = 879.0
-offset_right = 1824.0
-offset_bottom = 1001.0
-text = "X"
+offset_left = 1407.0
+offset_top = 643.0
+offset_right = 1914.0
+offset_bottom = 1066.0
+icon = ExtResource("4_68tsg")
+flat = true
+expand_icon = true
+
+[node name="FondoZoomEstatua" type="ColorRect" parent="CapaUI" unique_id=1954802436]
+visible = false
+offset_right = 1921.0
+offset_bottom = 1066.0
+color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CapaUI/FondoZoomEstatua" unique_id=1332551696]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 1925.0
+offset_bottom = 1075.0
+texture = ExtResource("5_8cp3p")
+expand_mode = 1
+
+[node name="BtnCerrarEstatua" type="Button" parent="CapaUI/FondoZoomEstatua" unique_id=1572011362]
+layout_mode = 0
+offset_left = 1312.0
+offset_top = 698.0
+offset_right = 1840.0
+offset_bottom = 1043.0
+icon = ExtResource("4_68tsg")
+flat = true
+expand_icon = true
+
+[node name="FondoZoomPared" type="ColorRect" parent="CapaUI" unique_id=1127299062]
+visible = false
+offset_right = 1918.0
+offset_bottom = 1066.0
+color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CapaUI/FondoZoomPared" unique_id=812781164]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 1925.0
+offset_bottom = 1075.0
+texture = ExtResource("6_ydtn4")
+expand_mode = 1
+
+[node name="BtnCerrarPared" type="Button" parent="CapaUI/FondoZoomPared" unique_id=702641383]
+layout_mode = 0
+offset_left = 1564.0
+offset_top = 858.0
+offset_right = 1999.0
+offset_bottom = 1130.0
+icon = ExtResource("4_68tsg")
+flat = true
+expand_icon = true
+
+[node name="FondoZoomFuente" type="ColorRect" parent="CapaUI" unique_id=1598850972]
+visible = false
+offset_right = 1927.0
+offset_bottom = 1066.0
+color = Color(1, 1, 1, 0)
+
+[node name="ImagenFuente" type="TextureRect" parent="CapaUI/FondoZoomFuente" unique_id=1371077626]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 1925.0
+offset_bottom = 1075.0
+texture = ExtResource("7_hv2ca")
+expand_mode = 1
+
+[node name="CapsulaCerrada" type="TextureRect" parent="CapaUI/FondoZoomFuente/ImagenFuente" unique_id=455906231]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 224.0
+offset_right = 1219.0
+offset_bottom = 566.0
+texture = ExtResource("8_s48l2")
+expand_mode = 1
+
+[node name="TBAparatoFuente" type="TextureButton" parent="CapaUI/FondoZoomFuente/ImagenFuente" unique_id=2007183510]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 281.0
+offset_right = 1218.0
+offset_bottom = 553.0
+
+[node name="BtnCerrarFuente" type="Button" parent="CapaUI/FondoZoomFuente" unique_id=1358642177]
+layout_mode = 0
+offset_left = 1415.0
+offset_top = 757.0
+offset_right = 2041.0
+offset_bottom = 1151.0
+icon = ExtResource("4_68tsg")
+flat = true
+expand_icon = true
+
+[node name="LlaveClickable" type="TextureButton" parent="CapaUI/FondoZoomFuente" unique_id=1645462384]
+visible = false
+layout_mode = 0
+offset_left = 941.0
+offset_top = 332.0
+offset_right = 1055.0
+offset_bottom = 501.0
+disabled = true
+texture_normal = ExtResource("9_afh24")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="FondoZoomPanel" type="ColorRect" parent="CapaUI" unique_id=2032654921]
+visible = false
+offset_right = 1927.0
+offset_bottom = 1066.0
+color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CapaUI/FondoZoomPanel" unique_id=279790035]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 1925.0
+offset_bottom = 1075.0
+texture = ExtResource("9_qpwqs")
+expand_mode = 1
+
+[node name="BtnCerrarFuente2" type="Button" parent="CapaUI/FondoZoomPanel" unique_id=1515939569]
+layout_mode = 0
+offset_left = 1415.0
+offset_top = 757.0
+offset_right = 2041.0
+offset_bottom = 1151.0
+icon = ExtResource("4_68tsg")
+flat = true
+expand_icon = true
+
+[node name="TBGuadana" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=976493857]
+layout_mode = 0
+offset_left = 876.0
+offset_top = 376.0
+offset_right = 965.0
+offset_bottom = 443.0
+
+[node name="TBTriqueta" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=1817305946]
+layout_mode = 0
+offset_left = 989.0
+offset_top = 367.0
+offset_right = 1089.0
+offset_bottom = 447.0
+
+[node name="TBCorona" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=2100330027]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 453.0
+offset_right = 843.0
+offset_bottom = 536.0
+
+[node name="TBCaliz" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=1903731257]
+layout_mode = 0
+offset_left = 867.0
+offset_top = 447.0
+offset_right = 970.0
+offset_bottom = 529.0
+
+[node name="TBRayo" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=1872401735]
+layout_mode = 0
+offset_left = 996.0
+offset_top = 456.0
+offset_right = 1086.0
+offset_bottom = 532.0
+
+[node name="TBCraneo" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=849028196]
+layout_mode = 0
+offset_left = 1119.0
+offset_top = 450.0
+offset_right = 1213.0
+offset_bottom = 534.0
+
+[node name="TBPoligono" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=987575537]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 537.0
+offset_right = 839.0
+offset_bottom = 620.0
+
+[node name="TBEspiral" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=1636786233]
+layout_mode = 0
+offset_left = 866.0
+offset_top = 543.0
+offset_right = 963.0
+offset_bottom = 620.0
+
+[node name="TBOjo" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=706827897]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 550.0
+offset_right = 1082.0
+offset_bottom = 614.0
+
+[node name="TBEstrella" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=2038070116]
+layout_mode = 0
+offset_left = 1128.0
+offset_top = 543.0
+offset_right = 1208.0
+offset_bottom = 616.0
+
+[node name="TBOk" type="TextureButton" parent="CapaUI/FondoZoomPanel" unique_id=1742159942]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 630.0
+offset_right = 1218.0
+offset_bottom = 705.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CapaUI/FondoZoomPanel" unique_id=1929903381]
+layout_mode = 0
+offset_left = 769.0
+offset_top = 187.0
+offset_right = 1193.0
+offset_bottom = 354.0
+
+[node name="Casilla1" type="TextureRect" parent="CapaUI/FondoZoomPanel/HBoxContainer" unique_id=2060855977]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Casilla2" type="TextureRect" parent="CapaUI/FondoZoomPanel/HBoxContainer" unique_id=184995086]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Casilla3" type="TextureRect" parent="CapaUI/FondoZoomPanel/HBoxContainer" unique_id=1456483488]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Casilla4" type="TextureRect" parent="CapaUI/FondoZoomPanel/HBoxContainer" unique_id=1565960396]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MensajePantalla" type="Label" parent="CapaUI/FondoZoomPanel" unique_id=1368950510]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 189.0
+offset_right = 1190.0
+offset_bottom = 349.0
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PantallaNegra" type="ColorRect" parent="CapaUI" unique_id=2115778134]
+visible = false
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,76 +329,57 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="FondoZoomEstatua" type="ColorRect" parent="CapaUI" unique_id=1954802436]
+[node name="EfectosSecundarios" type="CanvasLayer" parent="." unique_id=773830739]
+layer = 40
+
+[node name="VideoTransicion" type="VideoStreamPlayer" parent="EfectosSecundarios" unique_id=1182176054]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1927.0
+offset_bottom = 1081.0
+stream = ExtResource("11_poccc")
+expand = true
 
-[node name="TextureRect" type="TextureRect" parent="CapaUI/FondoZoomEstatua" unique_id=1332551696]
-layout_mode = 0
-offset_top = 4.0
-offset_right = 1925.0
-offset_bottom = 1075.0
-texture = ExtResource("3_i1n8g")
-expand_mode = 1
+[node name="PantallaNegra" type="ColorRect" parent="EfectosSecundarios" unique_id=1363825500]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
-[node name="BtnCerrarEstatua" type="Button" parent="CapaUI/FondoZoomEstatua" unique_id=1572011362]
-layout_mode = 0
-offset_left = 1741.0
-offset_top = 879.0
-offset_right = 1824.0
-offset_bottom = 1001.0
-text = "X"
-
-[node name="FondoZoomPared" type="ColorRect" parent="CapaUI" unique_id=1127299062]
+[node name="LlaveGrande" type="TextureButton" parent="EfectosSecundarios" unique_id=1981293867]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="FondoZoomFuente" type="ColorRect" parent="CapaUI/FondoZoomPared" unique_id=1598850972]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="CapaUI/FondoZoomPared/FondoZoomFuente" unique_id=1371077626]
-layout_mode = 0
-offset_top = 4.0
-offset_right = 1925.0
-offset_bottom = 1075.0
-texture = ExtResource("3_i1n8g")
-expand_mode = 1
-
-[node name="BtnCerrarFuente" type="Button" parent="CapaUI/FondoZoomPared/FondoZoomFuente" unique_id=1358642177]
-layout_mode = 0
-offset_left = 1741.0
-offset_top = 879.0
-offset_right = 1824.0
-offset_bottom = 1001.0
-text = "X"
-
-[node name="TextureRect" type="TextureRect" parent="CapaUI/FondoZoomPared" unique_id=812781164]
-layout_mode = 0
-offset_top = 4.0
-offset_right = 1925.0
-offset_bottom = 1075.0
-texture = ExtResource("3_i1n8g")
-expand_mode = 1
-
-[node name="BtnCerrarPared" type="Button" parent="CapaUI/FondoZoomPared" unique_id=702641383]
-layout_mode = 0
-offset_left = 1741.0
-offset_top = 879.0
-offset_right = 1824.0
-offset_bottom = 1001.0
-text = "X"
+offset_left = 831.0
+offset_top = 272.0
+offset_right = 1157.0
+offset_bottom = 781.0
+mouse_filter = 2
+texture_normal = ExtResource("9_afh24")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="TBEstatua" to="." method="_on_tb_estatua_pressed"]
 [connection signal="pressed" from="TBFuente" to="." method="_on_tb_fuente_pressed"]
 [connection signal="pressed" from="TBPared" to="." method="_on_tb_pared_pressed"]
 [connection signal="pressed" from="TBFaro" to="." method="_on_tb_faro_pressed"]
-[connection signal="pressed" from="CapaUI/FondoZoomPuerta/BtnCerrarPuerta" to="." method="_on_btn_cerrar_puerta_pressed"]
 [connection signal="pressed" from="CapaUI/FondoZoomPuerta/BtnCerrarPuerta" to="." method="_on_btn_cerrar_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPuerta/BtnCerrarPuerta" to="." method="_on_btn_cerrar_puerta_pressed"]
 [connection signal="pressed" from="CapaUI/FondoZoomEstatua/BtnCerrarEstatua" to="." method="_on_btn_cerrar_estatua_pressed"]
-[connection signal="pressed" from="CapaUI/FondoZoomPared/FondoZoomFuente/BtnCerrarFuente" to="." method="_on_btn_cerrar_fuente_pressed"]
 [connection signal="pressed" from="CapaUI/FondoZoomPared/BtnCerrarPared" to="." method="_on_btn_cerrar_pared_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomFuente/ImagenFuente/TBAparatoFuente" to="." method="_on_tb_aparato_fuente_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomFuente/BtnCerrarFuente" to="." method="_on_btn_cerrar_fuente_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomFuente/LlaveClickable" to="." method="_on_llave_clickable_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/BtnCerrarFuente2" to="." method="_on_btn_cerrar_fuente_2_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBGuadana" to="." method="_on_tb_guadana_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBTriqueta" to="." method="_on_tb_triqueta_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBCorona" to="." method="_on_tb_corona_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBCaliz" to="." method="_on_tb_caliz_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBRayo" to="." method="_on_tb_rayo_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBCraneo" to="." method="_on_tb_craneo_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBPoligono" to="." method="_on_tb_poligono_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBEspiral" to="." method="_on_tb_espiral_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBOjo" to="." method="_on_tb_ojo_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBEstrella" to="." method="_on_tb_estrella_pressed"]
+[connection signal="pressed" from="CapaUI/FondoZoomPanel/TBOk" to="." method="_on_tb_ok_pressed"]
