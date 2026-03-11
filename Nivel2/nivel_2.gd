@@ -5,7 +5,7 @@ var tiene_llave = false
 
 func _ready() -> void:
 	pass
-	
+
 # Método para transiciones
 func hacer_transicion(panel_destino: Control, mostrar: bool) -> void:
 	var tween_fade = create_tween()
@@ -151,7 +151,17 @@ func _on_texture_button_pressed() -> void:
 	
 	# 3. Le damos "Play" al video
 	$CapaUI/ZoomPuerta/VideoStreamPlayer.play()
-
+	
+	# 4. Esperamos automáticamente a que el video termine
+	await $CapaUI/ZoomPuerta/VideoStreamPlayer.finished
+	
+	# 5. Fundido a negro final para tapar el final del video
+	var tween_fade = create_tween() # <-- ¡Agregamos 'var'!
+	tween_fade.tween_property($CapaUI/PantallaNegra, "modulate:a", 1.0, 0.6) # <-- Apuntamos a la pantalla negra
+	await tween_fade.finished
+	
+	# 6. Cambiamos de escena (¡Cambia el nombre por el de tu escena real!)
+	get_tree().change_scene_to_file("res://Nivel3/habitacion_faro.tscn")
 
 func _on_button_cerrar_cofre_pressed() -> void:
 	hacer_transicion($CapaUI/ZoomCofre, false)

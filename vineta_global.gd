@@ -6,7 +6,7 @@ extends CanvasLayer
 @onready var video_game_over = $VideoGameOver # Tu VideoStreamPlayer de derrota
 
 # --- CONFIGURACIÓN ---
-var tiempo_restante = 120 # Tiempo inicial en segundos
+var tiempo_restante = 650 # Tiempo inicial en segundos
 var detenido = false
 
 func _ready() -> void:
