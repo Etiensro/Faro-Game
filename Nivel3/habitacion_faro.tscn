@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://wi7lylo77wqa"]
 
 [ext_resource type="Script" uid="uid://bo3yicyh1hcl0" path="res://Nivel3/habitacion_faro.gd" id="1_5fkd7"]
-[ext_resource type="Texture2D" uid="uid://c7kx56ief0y3o" path="res://Nivel3/Escenarios/habitacion faro.jpeg" id="2_5kmrc"]
+[ext_resource type="Texture2D" uid="uid://dy7f86qgm17ri" path="res://Nivel3/Escenarios/cuarto.png" id="2_2thd3"]
 [ext_resource type="Texture2D" uid="uid://d36gkn3yme1p2" path="res://Nivel3/Escenarios/panel2.jpeg" id="3_2thd3"]
 [ext_resource type="Texture2D" uid="uid://8d557msknkff" path="res://Nivel3/Escenarios/Boton.png" id="4_p1un3"]
-[ext_resource type="Texture2D" uid="uid://cx57isll28485" path="res://Nivel3/Escenarios/acertijo.jpeg" id="5_eac4o"]
+[ext_resource type="Texture2D" uid="uid://cobhg8hrw6x2n" path="res://Nivel3/Escenarios/placa2.png" id="5_2thd3"]
+[ext_resource type="VideoStream" uid="uid://yv4og1b2d1ax" path="res://Nivel3/Escenarios/Videoo.ogv" id="6_2thd3"]
+[ext_resource type="VideoStream" uid="uid://4l1gqf7l6jaq" path="res://Nivel3/Escenarios/Prisma libre.ogv" id="7_p1un3"]
 
 [sub_resource type="SystemFont" id="SystemFont_5fkd7"]
 
@@ -23,23 +25,23 @@ script = ExtResource("1_5fkd7")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_5kmrc")
+texture = ExtResource("2_2thd3")
 expand_mode = 1
 
 [node name="BotonAcertijo" type="Button" parent="." unique_id=1396509797]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 733.0
-offset_top = 685.0
-offset_right = 940.0
-offset_bottom = 899.0
+offset_left = 711.0
+offset_top = 684.0
+offset_right = 941.0
+offset_bottom = 951.0
 
 [node name="BotonTeclado" type="Button" parent="." unique_id=614178471]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 1034.0
 offset_top = 657.0
-offset_right = 1202.0
+offset_right = 1235.0
 offset_bottom = 943.0
 
 [node name="VistaTeclado" type="TextureRect" parent="." unique_id=1225248018]
@@ -62,20 +64,20 @@ flat = true
 
 [node name="BotonCerrarTeclado1" type="TextureRect" parent="VistaTeclado" unique_id=1141326468]
 layout_mode = 0
-offset_left = -27.0
-offset_top = 860.0
-offset_right = 1259.338
-offset_bottom = 1558.0
+offset_left = 1619.0
+offset_top = 863.0
+offset_right = 2905.338
+offset_bottom = 1561.0
 scale = Vector2(0.25654218, 0.3015271)
 texture = ExtResource("4_p1un3")
 
 [node name="BotonCerrarTeclado" type="Button" parent="VistaTeclado" unique_id=512081833]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 46.0
-offset_top = 904.0
-offset_right = 230.0
-offset_bottom = 1036.0
+offset_left = 1693.0
+offset_top = 906.0
+offset_right = 1877.0
+offset_bottom = 1038.0
 
 [node name="Boton0" type="Button" parent="." unique_id=659678748]
 modulate = Color(1, 1, 1, 0)
@@ -170,24 +172,50 @@ visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("5_eac4o")
+texture = ExtResource("5_2thd3")
+expand_mode = 1
 
 [node name="BotonCerrarAcertijo1" type="TextureRect" parent="VistaAcertijo" unique_id=39483417]
 layout_mode = 0
-offset_left = -27.0
-offset_top = 860.0
-offset_right = 1259.338
-offset_bottom = 1558.0
+offset_left = 1630.0
+offset_top = 877.0
+offset_right = 2916.338
+offset_bottom = 1575.0
 scale = Vector2(0.25654218, 0.3015271)
 texture = ExtResource("4_p1un3")
 
 [node name="BotonCerrarAcertijo" type="Button" parent="VistaAcertijo" unique_id=668618909]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 46.0
-offset_top = 904.0
-offset_right = 230.0
-offset_bottom = 1036.0
+offset_left = 1702.0
+offset_top = 920.0
+offset_right = 1886.0
+offset_bottom = 1052.0
+
+[node name="PantallaNegra" type="ColorRect" parent="." unique_id=1878227363]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VideoFinal" type="VideoStreamPlayer" parent="." unique_id=1797241151]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("6_2thd3")
+expand = true
+
+[node name="VideoFelicidades" type="VideoStreamPlayer" parent="." unique_id=933546757]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("7_p1un3")
+expand = true
 
 [connection signal="pressed" from="BotonAcertijo" to="." method="_on_boton_acertijo_pressed"]
 [connection signal="pressed" from="BotonTeclado" to="." method="_on_boton_teclado_pressed"]

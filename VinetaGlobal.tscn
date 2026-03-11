@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://dwx6shwfrxc0w"]
 
+[ext_resource type="Script" uid="uid://bu5yyoieoe7ou" path="res://vineta_global.gd" id="1_dwf27"]
 [ext_resource type="Texture2D" uid="uid://b6hbhb4l2rhrp" path="res://Assets/Escenas/Vignette.png" id="1_fevlp"]
+[ext_resource type="VideoStream" uid="uid://d1fqpbe68tnkd" path="res://Nivel3/Escenarios/pierde.ogv" id="3_s34wv"]
 
 [node name="CapaVinetaGlobal" type="CanvasLayer" unique_id=1501783073]
 layer = 100
+script = ExtResource("1_dwf27")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1602536274]
 modulate = Color(1, 1, 1, 0.8509804)
@@ -15,3 +18,19 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("1_fevlp")
 expand_mode = 1
+
+[node name="EtiquetaTiempo" type="Label" parent="." unique_id=1712885422]
+offset_left = 43.0
+offset_top = 50.0
+offset_right = 296.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 95
+text = "00:00"
+
+[node name="Timer" type="Timer" parent="." unique_id=882991222]
+
+[node name="VideoGameOver" type="VideoStreamPlayer" parent="." unique_id=1450487459]
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("3_s34wv")
+expand = true
