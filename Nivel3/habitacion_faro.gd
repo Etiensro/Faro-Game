@@ -3,48 +3,100 @@ extends Control
 # --- REFERENCIAS A LOS NODOS ---
 @onready var vista_acertijo = $VistaAcertijo
 @onready var vista_teclado = $VistaTeclado
-@onready var pantalla = $VistaTeclado/PantallaNumero 
+@onready var pantalla_teclado = $VistaTeclado/PantallaNumero
+@onready var pantalla_negra = $PantallaNegra
+@onready var video_final = $VideoFinal
+@onready var video_felicidades = $VideoFelicidades
 
-# --- CONFIGURACIÓN DEL JUEGO ---
-var SOLUCION_FINAL = "150" 
+# --- CONFIGURACIÓN ---
+var SOLUCION_FINAL = "1132" 
 var respuesta_usuario = ""
 
-func _ready():
+func _ready() -> void:
+	# Todo empieza oculto y la pantalla negra transparente
 	vista_acertijo.visible = false
 	vista_teclado.visible = false
-	pantalla.text = ""
+	video_final.visible = false
+	video_felicidades.visible = false
+	pantalla_teclado.text = ""
+	pantalla_negra.modulate.a = 0.0
+	
+	# Conectamos el final del primer video al segundo por seguridad
+	video_final.finished.connect(_on_video_final_terminado)
 
-# --- LÓGICA DEL TECLADO ---
+# --- LÓGICA DE GANAR ---
 
-func registrar_numero(num):
+func ganar_nivel():
+	pantalla_teclado.text = "OK"
+	
+	# 1. Detenemos el tiempo en la Viñeta Global
+	if has_node("/root/VinetaGlobal"):
+		get_node("/root/VinetaGlobal").detener_reloj()
+	
+	# 2. Transición al primer video (Acción)
+	# Aquí corregí el nombre de la variable para que no te dé error
+	var tween_final = create_tween()
+	
+	# Fundido a negro
+	tween_final.tween_property(pantalla_negra, "modulate:a", 1.0, 1.0)
+	
+	# Cambios en la oscuridad
+	tween_final.tween_callback(func():
+		vista_teclado.visible = false
+		video_final.visible = true
+		video_final.play()
+	)
+	
+	# Revelar el video
+	tween_final.tween_property(pantalla_negra, "modulate:a", 0.0, 1.0)
+
+# --- SECUENCIA DEL SEGUNDO VIDEO (FELICIDADES) ---
+
+func _on_video_final_terminado():
+	# Transición rápida entre videos
+	var tween_cambio = create_tween()
+	tween_cambio.tween_property(pantalla_negra, "modulate:a", 1.0, 0.5)
+	
+	tween_cambio.tween_callback(func():
+		video_final.visible = false
+		video_felicidades.visible = true
+		video_felicidades.play()
+	)
+	
+	tween_cambio.tween_property(pantalla_negra, "modulate:a", 0.0, 0.5)
+
+# --- NAVEGACIÓN Y BOTONES ---
+
+func hacer_transicion(panel_destino: Control, mostrar: bool) -> void:
+	var tween_fade = create_tween()
+	tween_fade.tween_property(pantalla_negra, "modulate:a", 1.0, 0.6)
+	tween_fade.tween_callback(func(): panel_destino.visible = mostrar)
+	tween_fade.tween_property(pantalla_negra, "modulate:a", 0.0, 0.6)
+
+func registrar_numero(num: String):
 	if respuesta_usuario.length() < 8:
 		respuesta_usuario += num
-		pantalla.text = respuesta_usuario
+		pantalla_teclado.text = respuesta_usuario
 
 func _on_boton_enter_pressed():
 	if respuesta_usuario == SOLUCION_FINAL:
 		ganar_nivel()
 	else:
-		pantalla.text = "ERROR"
+		pantalla_teclado.text = "ERROR"
 		respuesta_usuario = ""
 		await get_tree().create_timer(1.0).timeout
-		pantalla.text = ""
+		pantalla_teclado.text = ""
 
-# --- EFECTO DE VICTORIA ---
+# --- SEÑALES DE BOTONES (Asegúrate de conectarlas en el editor) ---
+func _on_boton_acertijo_pressed(): hacer_transicion(vista_acertijo, true)
+func _on_boton_teclado_pressed(): hacer_transicion(vista_teclado, true)
+func _on_boton_cerrar_acertijo_pressed(): hacer_transicion(vista_acertijo, false)
+func _on_boton_cerrar_teclado_pressed():
+	hacer_transicion(vista_teclado, false)
+	respuesta_usuario = ""
+	pantalla_teclado.text = ""
 
-func ganar_nivel():
-	pantalla.text = "OK"
-	var capa_blanca = ColorRect.new()
-	capa_blanca.color = Color.WHITE
-	capa_blanca.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	capa_blanca.modulate.a = 0 
-	add_child(capa_blanca)
-	
-	var tween = create_tween()
-	tween.tween_property(capa_blanca, "modulate:a", 1.0, 3.0)
-	await tween.finished
-
-# --- BOTONES NUMÉRICOS ---
+# Botones numéricos
 func _on_boton_0_pressed(): registrar_numero("0")
 func _on_boton_1_pressed(): registrar_numero("1")
 func _on_boton_2_pressed(): registrar_numero("2")
@@ -55,28 +107,3 @@ func _on_boton_6_pressed(): registrar_numero("6")
 func _on_boton_7_pressed(): registrar_numero("7")
 func _on_boton_8_pressed(): registrar_numero("8")
 func _on_boton_9_pressed(): registrar_numero("9")
-
-# --- NAVEGACIÓN (ABRIR VISTAS) ---
-
-func _on_boton_acertijo_pressed():
-	vista_acertijo.visible = true
-
-func _on_boton_teclado_pressed():
-	vista_teclado.visible = true
-
-# --- NUEVOS BOTONES PARA CERRAR (REGRESAR) ---
-
-func _on_boton_cerrar_acertijo_pressed():
-	vista_acertijo.visible = false
-
-func _on_boton_cerrar_teclado_pressed():
-	vista_teclado.visible = false
-	# Limpiamos lo que escribió por si quiere empezar de cero al volver
-	respuesta_usuario = ""
-	pantalla.text = ""
-
-# Mantener clic derecho como opción extra para cerrar
-func _unhandled_input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-		_on_boton_cerrar_acertijo_pressed()
-		_on_boton_cerrar_teclado_pressed()
